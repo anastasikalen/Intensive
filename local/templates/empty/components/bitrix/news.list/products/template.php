@@ -69,7 +69,16 @@ while ( $ar_Section = $rs_Section->Fetch() ) {
                 </h2>
             </div>
 
+            <div id="accordionGeneral<?=$arItem['CODE']?>" class="accordion-collapse collapse" aria-labelledby="heading<?=$arItem['CODE']?>" data-bs-parent="#accordionGeneral">
 
+                <div class="accordion-body">
+                    <b><span>Вес:</span></b>
+                    <?=$arItem['PROPERTIES']['WEIGHT']['VALUE']?>
+                    <br>
+                    <b><span>Единица измерения:</span></b>
+                    <?=$arItem['PROPERTIES']['UNIT']['VALUE']?>
+                </div>
+            </div>
         <?php endforeach; ?>
     </div>
 <?php endif; ?>
