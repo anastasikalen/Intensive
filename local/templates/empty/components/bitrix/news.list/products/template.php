@@ -15,26 +15,21 @@ $this->setFrameMode(true);
 //print_r($arResult);
 ?>
 <?
-$infoblock = 1; // Инфоблок с ID ХХХ (необходимо установить ID нужного инфоблока)
+$infoblock = $arParams['IBLOCK_ID'];
 $rs_Section = CIBlockSection::GetList(array('left_margin' => 'asc'), array('IBLOCK_ID' => $infoblock));
 while ( $ar_Section = $rs_Section->Fetch() ) {
-    $ar_Resu[] = array(  // собираем массив того, что нам нужно
-        'ID' => $ar_Section['ID'], // id раздела
-        'NAME' => $ar_Section['NAME'], // имя раздела (что нас, собственно, интересует)
+    $ar_Resu[] = array(
+        'ID' => $ar_Section['ID'],
+        'NAME' => $ar_Section['NAME'],
         'IBLOCK_SECTION_ID' => $ar_Section['IBLOCK_SECTION_ID'],
         'LEFT_MARGIN' => $ar_Section['LEFT_MARGIN'],
         'RIGHT_MARGIN' => $ar_Section['RIGHT_MARGIN'],
         'DEPTH_LEVEL' => $ar_Section['DEPTH_LEVEL'],
     );
-   // print_r($ar_Resu);
 }
-
 ?>
 
-
-
 <h2>Продукция</h2>
-
 <?php if (!empty($arResult['ITEMS'])): ?>
     <div class="accordion" id="accordionGeneral">
 

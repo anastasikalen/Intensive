@@ -14,6 +14,9 @@ class CombinedMigration extends Version
 
         $itemMigration = new ITEM20230827215032();
         $itemMigration->up();
+
+        $categoryMigration = new Category20230829190416();
+        $categoryMigration->up();
     }
 
     public function down()
@@ -21,7 +24,12 @@ class CombinedMigration extends Version
         $itemMigration = new ITEM20230827215032();
         $itemMigration->down();
 
+        $categoryMigration = new Category20230829190416();
+        $categoryMigration->down();
+
         $infoBlockMigration = new InfoBlock20230827181521();
         $infoBlockMigration->down();
+
+
     }
 }
